@@ -6,9 +6,7 @@ import sx, { SxProp } from '../sx';
 /* eslint-disable-next-line */
 export type ButtonProps = {} & SxProp;
 
-const StyledButton = styled.button<SxProp>`
-  ${sx}
-`;
+const StyledButton = styled.button<SxProp>(sx);
 
 const ButtonComponent: React.FC<React.PropsWithChildren<ButtonProps>> = ({
   sx = {},

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Button } from '@wtlin/ui';
+import { Button, Box } from '@wtlin/ui';
 
 const StyledPage = styled.div`
   .page {
@@ -9,16 +9,25 @@ const StyledPage = styled.div`
 export function Index() {
   return (
     <StyledPage>
-      <Button
+      <Box
+        my={2}
         sx={{
-          fontSize: [4, 3, 2, 1],
-          padding: 4,
-          color: 'common.white',
-          bg: 'primary.main',
+          padding: 3,
+          bg: 'primary.dark',
+          mx: 6,
         }}
       >
-        Button
-      </Button>
+        <Button
+          sx={{
+            fontSize: [4, 3, 2, 1],
+            padding: 4,
+            color: 'common.white',
+            bg: 'primary.main',
+          }}
+        >
+          Button
+        </Button>
+      </Box>
     </StyledPage>
   );
 }
