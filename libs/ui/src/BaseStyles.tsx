@@ -1,15 +1,11 @@
 import { Global, css } from '@emotion/react';
 import styled from '@emotion/styled';
 import {
-  space,
-  SpaceProps,
-  color,
-  ColorProps,
-  display,
-  DisplayProps,
-  typography,
-  TypographyProps,
-} from 'styled-system';
+  COMMON,
+  SystemCommonProps,
+  TYPOGRAPHY,
+  SystemTypographyProps,
+} from './constants';
 import { ComponentProps } from './utils/types';
 
 const GlobalStyle = css({
@@ -20,13 +16,14 @@ const GlobalStyle = css({
     boxSizing: 'inherit',
   },
   body: {
-    margin: 0, // Remove the margin in all browsers.
+    margin: 0,
   },
 });
 
-const Base = styled.div<
-  SpaceProps & ColorProps & DisplayProps & TypographyProps
->(space, color, display, typography);
+const Base = styled.div<SystemCommonProps & SystemTypographyProps>(
+  COMMON,
+  TYPOGRAPHY
+);
 
 export type BaseStylesProps = ComponentProps<typeof Base>;
 
