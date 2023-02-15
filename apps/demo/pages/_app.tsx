@@ -1,7 +1,7 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 
-import { ThemeProvider } from '@wtlin/ui';
+import { ThemeProvider, BaseStyles } from '@wtlin/ui';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
@@ -11,7 +11,9 @@ function CustomApp({ Component, pageProps }: AppProps) {
       </Head>
       <main className="app">
         <ThemeProvider>
-          <Component {...pageProps} />
+          <BaseStyles>
+            <Component {...pageProps} />
+          </BaseStyles>
         </ThemeProvider>
       </main>
     </>
