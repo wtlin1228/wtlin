@@ -1,0 +1,40 @@
+{
+  "name": "primitives",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/primitives/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/primitives",
+        "main": "libs/primitives/src/index.ts",
+        "tsConfig": "libs/primitives/tsconfig.lib.json",
+        "assets": []
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/primitives/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/primitives/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": ["lib"]
+}

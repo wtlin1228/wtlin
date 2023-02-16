@@ -10,7 +10,8 @@ function CustomApp({ Component, pageProps }: AppProps) {
         <title>Welcome to demo!</title>
       </Head>
       <main className="app">
-        <ThemeProvider>
+        <ThemeProvider colorMode="auto">
+          {/* <ThemeProvider colorMode="dark"> */}
           <BaseStyles>
             <Component {...pageProps} />
           </BaseStyles>

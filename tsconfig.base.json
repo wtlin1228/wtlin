@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@wtlin/primitives": ["libs/primitives/src/index.ts"],
       "@wtlin/ui": ["libs/ui/src/index.ts"]
     }
   },

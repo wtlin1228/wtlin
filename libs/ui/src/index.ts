@@ -1,6 +1,6 @@
 export { default as BaseStyles } from './BaseStyles';
 export type { BaseStylesProps } from './BaseStyles';
-export * from './ThemeProvider';
+export { default as ThemeProvider, useTheme } from './ThemeProvider';
 export type { ThemeProviderProps } from './ThemeProvider';
 
 // Layouts

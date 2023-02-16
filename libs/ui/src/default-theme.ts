@@ -1,3 +1,4 @@
+import primitives from '@wtlin/primitives';
 import { fontStack } from './utils/theme';
 
 const animation = {
@@ -78,31 +79,14 @@ const space = [
   '128px',
 ];
 
-const lightPalette = {
-  common: {
-    black: '#000',
-    white: '#fff',
-  },
-  primary: {
-    main: '#432123',
-    light: '#543345',
-    dark: '#321123',
-  },
-};
-
-const darkPalette = {
-  common: {
-    black: '#000',
-    white: '#fff',
-  },
-  primary: {
-    main: '#432123',
-    light: '#543345',
-    dark: '#321123',
-  },
-};
-
-const colors = lightPalette;
+const colorSchemes = Object.entries(primitives.colors).reduce<
+  Record<string, { colors: Partial<typeof primitives.colors.light> }>
+>((acc, [name, colorScheme]) => {
+  acc[name] = {
+    colors: colorScheme,
+  };
+  return acc;
+}, {});
 
 const theme = {
   animation,
@@ -115,7 +99,7 @@ const theme = {
   radii,
   sizes,
   space,
-  colors,
+  colorSchemes,
 };
 
 export default theme;

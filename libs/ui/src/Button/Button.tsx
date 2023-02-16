@@ -3,8 +3,8 @@ import styled from '@emotion/styled';
 
 import sx, { SxProp } from '../sx';
 
-/* eslint-disable-next-line */
-export type ButtonProps = {} & SxProp;
+export type ButtonProps = SxProp &
+  React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const StyledButton = styled.button<SxProp>(sx);
 
@@ -12,7 +12,11 @@ const ButtonComponent: React.FC<React.PropsWithChildren<ButtonProps>> = ({
   sx = {},
   ...props
 }) => {
-  return <StyledButton sx={sx}>{props.children}</StyledButton>;
+  return (
+    <StyledButton sx={sx} {...props}>
+      {props.children}
+    </StyledButton>
+  );
 };
 
 export { ButtonComponent };
