@@ -1,5 +1,7 @@
 import * as styledSystem from 'styled-system';
 
+export const CSS_CUSTOM_PROPERTY_PREFIX_COLORS = '--wtlin-ui-colors';
+
 const { compose, system } = styledSystem;
 
 // Common props

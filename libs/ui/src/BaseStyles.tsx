@@ -1,17 +1,33 @@
 import { Global, css } from '@emotion/react';
 import styled from '@emotion/styled';
+import primitives from '@wtlin/primitives';
 import {
+  CSS_CUSTOM_PROPERTY_PREFIX_COLORS,
   COMMON,
   SystemCommonProps,
   TYPOGRAPHY,
   SystemTypographyProps,
 } from './constants';
+import { flatWithPath } from './utils/theme';
 import { ComponentProps } from './utils/types';
+
+const lightColors = flatWithPath(
+  primitives.colors.light,
+  CSS_CUSTOM_PROPERTY_PREFIX_COLORS
+);
+
+const darkColors = flatWithPath(
+  primitives.colors.dark,
+  CSS_CUSTOM_PROPERTY_PREFIX_COLORS
+);
 
 const GlobalStyle = css({
   html: {
     boxSizing: 'border-box',
+    ...lightColors,
   },
+  'html.wtlin-ui-light': lightColors,
+  'html.wtlin-ui-dark': darkColors,
   '*, *::before, *::after': {
     boxSizing: 'inherit',
   },

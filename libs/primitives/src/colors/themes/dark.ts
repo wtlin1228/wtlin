@@ -1,3 +1,9 @@
+import { merge } from '../../utils/color';
+import resolveVariables from '../../utils/resolveVariables';
+import darkAppVars from '../vars/app_dark';
+import darkComponentVars from '../vars/component_dark';
+import darkGlobalVars from '../vars/global_dark';
+
 const scale = {
   black: '#010409',
   white: '#ffffff',
@@ -111,4 +117,16 @@ const scale = {
   ],
 };
 
-export default scale;
+// const exceptions = {
+//   Please avoid adding exceptions to this base theme.
+//   Otherwise the exceptions will also propagate to all other extended themes.
+// }
+
+export default merge(
+  resolveVariables(darkAppVars, { scale }),
+  resolveVariables(darkComponentVars, { scale }),
+  resolveVariables(darkGlobalVars, { scale })
+
+  // Should we use scale directly?
+  // { scale }
+);

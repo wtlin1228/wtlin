@@ -1,5 +1,6 @@
 import primitives from '@wtlin/primitives';
-import { fontStack } from './utils/theme';
+import { toCssCustomProperties, fontStack } from './utils/theme';
+import { CSS_CUSTOM_PROPERTY_PREFIX_COLORS } from './constants';
 
 const animation = {
   easeOutCubic: 'cubic-bezier(0.33, 1, 0.68, 1)',
@@ -79,14 +80,10 @@ const space = [
   '128px',
 ];
 
-const colorSchemes = Object.entries(primitives.colors).reduce<
-  Record<string, { colors: Partial<typeof primitives.colors.light> }>
->((acc, [name, colorScheme]) => {
-  acc[name] = {
-    colors: colorScheme,
-  };
-  return acc;
-}, {});
+const colors = toCssCustomProperties(
+  primitives.colors.light,
+  CSS_CUSTOM_PROPERTY_PREFIX_COLORS
+);
 
 const theme = {
   animation,
@@ -99,7 +96,7 @@ const theme = {
   radii,
   sizes,
   space,
-  colorSchemes,
+  colors,
 };
 
 export default theme;
