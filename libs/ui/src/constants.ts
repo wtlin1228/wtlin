@@ -44,3 +44,30 @@ export interface SystemBorderProps
 export const LAYOUT = styledSystem.layout;
 
 export type SystemLayoutProps = styledSystem.LayoutProps;
+
+// The sx props accepts all props
+
+export const ALL = compose(
+  styledSystem.background,
+  styledSystem.border,
+  styledSystem.color,
+  styledSystem.flexbox,
+  styledSystem.grid,
+  styledSystem.layout,
+  styledSystem.position,
+  styledSystem.shadow,
+  styledSystem.space,
+  styledSystem.typography
+);
+
+export interface AllProps
+  extends styledSystem.BackgroundProps,
+    styledSystem.BorderProps,
+    styledSystem.ColorProps,
+    styledSystem.FlexboxProps,
+    styledSystem.GridProps,
+    styledSystem.LayoutProps,
+    styledSystem.PositionProps,
+    styledSystem.ShadowProps,
+    styledSystem.SpaceProps,
+    styledSystem.TypographyProps {}

@@ -1,9 +1,10 @@
-import css, { SystemStyleObject } from '@styled-system/css';
+import { ALL, AllProps } from './constants';
 
 export interface SxProp {
-  sx?: SystemStyleObject;
+  sx?: AllProps;
 }
 
-const sx = (props: SxProp) => css(props.sx);
+const sx = (props: SxProp & { theme: any }) =>
+  ALL({ ...props.sx, theme: props.theme });
 
 export default sx;

@@ -8,7 +8,14 @@ const animation = {
 
 const borderWidths = [0, '1px'];
 
-const breakpoints = ['544px', '768px', '1012px', '1280px'];
+const breakpoints = ['640px', '1024px', '1500px'];
+
+// @ts-expect-error see https://styled-system.com/responsive-styles#using-objects
+breakpoints.sm = breakpoints[0];
+// @ts-expect-error see https://styled-system.com/responsive-styles#using-objects
+breakpoints.md = breakpoints[1];
+// @ts-expect-error see https://styled-system.com/responsive-styles#using-objects
+breakpoints.lg = breakpoints[2];
 
 const fonts = {
   normal: fontStack([
@@ -58,10 +65,9 @@ const lineHeights = {
 const radii = ['0', '3px', '6px', '100px'];
 
 const sizes = {
-  small: '544px',
-  medium: '768px',
-  large: '1012px',
-  xlarge: '1280px',
+  small: '640px',
+  medium: '1024px',
+  large: '1500px',
 };
 
 const space = [
